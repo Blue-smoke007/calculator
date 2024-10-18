@@ -1,31 +1,32 @@
-const getValues = () => [
-    parseFloat(document.getElementById('num1').value),
-    parseFloat(document.getElementById('num2').value)
-  ];
-  
-  const updateResult = (result) => {
-    document.getElementById('result').innerText = result;
-  };
-  
-  const operations = [
-    () => {
-      const [num1, num2] = getValues();
-      updateResult(num1 + num2);
-    },
-    () => {
-      const [num1, num2] = getValues();
-      updateResult(num1 - num2);
-    },
-    () => {
-      const [num1, num2] = getValues();
-      updateResult(num1 * num2);
-    },
-    () => {
-      const [num1, num2] = getValues();
-      if (num2 === 0) return alert("Cannot divide by zero!");
-      updateResult(num1 / num2);
-    }
-  ];
+// Get numbers and operator from the user
+let num1 = parseFloat(prompt("Enter the first number:"));
+let operator = prompt("Enter an operator (+, -, *, /):");
+let num2 = parseFloat(prompt("Enter the second number:"));
+
+// Initialize the result variable
+let result;
+
+// Perform the operation based on the operator
+if (operator === "+") {
+  result = num1 + num2;
+} else if (operator === "-") {
+  result = num1 - num2;
+} else if (operator === "*") {
+  result = num1 * num2;
+} else if (operator === "/") {
+  if (num2 === 0) {
+    alert("Error: Cannot divide by zero!");
+  } else {
+    result = num1 / num2;
+  }
+} else {
+  alert("Invalid operator!");
+}
+
+// Display the result if it exists
+if (result !== undefined) {
+  alert(`The result is: ${result}`);
+}
 
   //methods used in array//
 
